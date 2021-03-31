@@ -1,0 +1,40 @@
+body{
+    background: white;
+}
+.container-fluid{
+    padding: 0px;
+}
+
+#titulo{
+    padding: 10px;
+    margin-bottom: 0px;
+    background: black;
+    color: white;
+}
+
+#titulo_palabra{
+    margin: 0px;
+}
+
+#productos_titulo{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: lightgray;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+/*Prodcuto*/
+.imagen_producto{
+    margin-left: 15%;
+    margin-top: 10px;
+}
+
+.titulo_producto{
+    margin: 10px 15%;
+    text-align: center;
+}
+
+.precio_producto{
+    margin: 10px 15%;
+    text-align: center;
+}
