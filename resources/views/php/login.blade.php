@@ -8,7 +8,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../assets/css/login.css">
 </head>
 <body>
 
@@ -16,7 +16,7 @@
     <div id="contenedor_login">
         <div class="row justify-content-center">
             <div id="login" class="col-lg-4 text-center">
-                <img src="../img/login_2.png.crdownload" class="rounded" alt="Login" width="200" height="200">
+                <img src="../assets/img/login_3.png" class="rounded" alt="Login" width="200" height="200">
             </div>
         </div>
         <br>
@@ -34,7 +34,7 @@
                     <br>
                     <div class="form-group">
                         <input type="submit" class="btn btn-success" value="Submit">
-                        <a href="../index.php">
+                        <a href="{{url('/')}}">
                             <button type="button" class="btn btn-danger">Regresar</button>
                         </a>
                     </div>
