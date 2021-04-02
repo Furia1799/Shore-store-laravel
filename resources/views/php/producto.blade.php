@@ -76,10 +76,10 @@
         <div  class="row">
             <div id="imagen_prodcuto" class="col-lg-8">
                 <a href="producto ">
-                    <img class="imagen_producto" src="../assets/img/tennis_1.jpg" class="rounded" alt="tennis_3" width="600" height="600">
+                        <img class="imagen_producto" src="../assets/img/tennis_1.jpg" class="rounded" alt="tennis_3" width="600" height="600">
                 </a>
             </div>
-            <div  id="producto_descripccion" class="col-lg-4">
+            <div  id="producto_descripccion" class="col-lg-4 shadow-lg p-4 mb-4 bg-white">
                 <div>
                     <h1 class="display-4">Predator 3421</h1>
                     <br>
@@ -88,34 +88,25 @@
                     <p class="text-left">Con una parte superior estratégicamente texturizada que ayuda con el agarre y el contacto,
                         el Nike Phantom GT Club Dynamic Fit TF está diseñado para los ataques precisos</p>
                     <br>
-                    <p> $ 1500 mxn</p>
+                    <p class="font-weight-bold"> $ 1500 mxn</p>
                 </div>
-                <div>
-                    <form action="" method="">
-                        <labe for="talla">Talla disponible </labe>
-                        <div class="dropdown">
-                            <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">Tallas disponibles
-                            </button>
-                        </div>
-                        <div class="dropdown-menu">
-                            <select>
-                                <option class="dropdown-item" value="23">23</option>
-                                <option class="dropdown-item" value="24">24</option>
-                                <option class="dropdown-item" value="25">25</option>
-                                <option class="dropdown-item" value="26">26</option>
-                                <option class="dropdown-item" value="27">27</option>
-                            </select>
-                        </div>
-
-                        <br>
+                <form action="" method="">
+                    <div class="form-group">
+                        <label for="seleccion">Tallas disponibles :</label>
+                        <select class="form-control" id="seleccion">
+                            <option value="23">23</option>
+                            <option value="24">24</option>
+                            <option value="25">25</option>
+                            <option value="26">26</option>
+                            <option value="27">27</option>
+                        </select>
                         <br>
                         <input type="submit"  class="btn btn-primary" value="Comprar">
                         <br>
                         <br>
                         <input type="submit"  class="btn btn-warning" value="Agregar Carrito">
-                    </form>
-                    <br>
-                </div>
+                    </div>
+                </form>
                 <div>
                     <button class="btn btn-danger">Regresar</button>
                 </div>
