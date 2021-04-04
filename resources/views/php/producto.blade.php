@@ -15,6 +15,7 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../assets/css/index.css">
+    <link rel="stylesheet" href="../assets/css/producto.css">
 </head>
 <body>
 <header>
@@ -75,9 +76,37 @@
         </div>
         <div  class="row">
             <div id="imagen_prodcuto" class="col-lg-8">
-                <a href="producto ">
-                        <img class="imagen_producto" src="../assets/img/tennis_1.jpg" class="rounded" alt="tennis_3" width="600" height="600">
-                </a>
+                <div id="carousel">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img class="d-block w-100" src="../assets/img/producto_adidas/adidas_1.jpg"
+                                     alt="First slide" width="500px" height="650px" >
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="../assets/img/producto_adidas/adidas_2.jpg"
+                                     alt="Second slide" width="500px" height="650px">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="../assets/img/producto_adidas/adidas_3.jpg"
+                                     alt="Third slide" width="500px" height="650px">
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
             </div>
             <div  id="producto_descripccion" class="col-lg-4 shadow-lg p-4 mb-4 bg-white">
                 <div>
@@ -101,10 +130,10 @@
                             <option value="27">27</option>
                         </select>
                         <br>
-                        <input type="submit"  class="btn btn-primary" value="Comprar">
+                        <input type="submit"  class="btn btn-primary" value="Comprar" id="btn_comprar">
                         <br>
                         <br>
-                        <input type="submit"  class="btn btn-warning" value="Agregar Carrito">
+                        <input type="submit"  class="btn btn-warning text-center" value="Agregar Carrito" id="btn_carrito">
                     </div>
                 </form>
                 <div>
