@@ -22,4 +22,5 @@ Route::view('/hombres', 'php.hombres');
 Route::view('/mujeres', 'php.mujeres');
 Route::view('/registro', 'php.registro');
 Route::view('/producto', 'php.producto');
+Route::view('/administrar_productos', 'php.administrar_productos.administrar_productos');
 
