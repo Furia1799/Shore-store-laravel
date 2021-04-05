@@ -73,60 +73,61 @@
             <div class="col-lg-12">
                 <h1 id="productos_titulo" class="display-4 text-center">Administrar Productos</h1>
             </div>
+
         </div>
-        <div id="tabla"></div>
-        <i class="bi-alarm" style="font-size: 25px; color: blue;"></i>
-        <!-- Modal Registro-->
-        <div class="modal fade" id="modalRegistro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-            <div class="modal-dialog modal-sm" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Agregar Persona</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <label>Nombre</label>
-                        <input type="text" name="" id="nombre" class="form-control input-sm">
-                        <label>Apellido</label>
-                        <input type="text" name="" id="apellido"class="form-control input-sm">
-                        <label>Email</label>
-                        <input type="text" name="" id="email"class="form-control input-sm">
-                        <label>Telefono</label>
-                        <input type="text" name="" id="telefono"class="form-control input-sm">
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-success" data-dismiss="modal" id="guardarnuevo">Agregar</button>
-                    </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div id="tabla_productos" class="table-responsive-sm">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>Categoria</th>
+                            <th>nombre</th>
+                            <th>Descripccion</th>
+                            <th>precio</th>
+                            <th>stock</th>
+                            <th>Fecha</th>
+                            <th>Imagen</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>Doe</td>
+                            <td>Doe</td>
+                            <td>Doe</td>
+                            <td>Doe</td>
+                            <td>Doe</td>
+                            <td>john@example.com</td>
+                        </tr>
+                        <tr>
+                            <td>Mary</td>
+                            <td>Moe</td>
+                            <td>Moe</td>
+                            <td>Moe</td>
+                            <td>Moe</td>
+                            <td>Moe</td>
+                            <td>Moe</td>
+                            <td>mary@example.com</td>
+                        </tr>
+                        <tr>
+                            <td>July</td>
+                            <td>Dooley</td>
+                            <td>Dooley</td>
+                            <td>Dooley</td>
+                            <td>Dooley</td>
+                            <td>Dooley</td>
+                            <td>Dooley</td>
+                            <td>july@example.com</td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
-            </div>
-        </div>
-        <!-- Modal Editable-->
-        <div class="modal fade" id="modalEditable" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-            <div class="modal-dialog modal-sm" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Editar Persona</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <input type="text" hidden="" id="idPersona" name="">
-                        <label>Nombre</label>
-                        <input type="text" name="" id="nombreEdit" class="form-control input-sm">
-                        <label>Apellido</label>
-                        <input type="text" name="" id="apellidoEdit"class="form-control input-sm">
-                        <label>Email</label>
-                        <input type="text" name="" id="emailEdit"class="form-control input-sm">
-                        <label>Telefono</label>
-                        <input type="text" name="" id="telefonoEdit"class="form-control input-sm">
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-warning" data-dismiss="modal" id="actualizarPersona">Actualizar</button>
-                    </div>
-                </div>
+                <br>
             </div>
         </div>
     </div>
@@ -157,20 +158,3 @@
 </body>
 </html>
 
-<script type="text/javascript">
-    $(document).ready(function () {
-        $('#tabla').load('html/tabla.php');
-    });
-
-</script>
-<script type="text/javascript">
-    $(document).ready(function(){
-        $('#guardarnuevo').click(function(){
-            nombre = $('#nombre').val();
-            apellido = $('#apellido').val();
-            email = $('#email').val();
-            telefono = $('#telefono').val();
-            agregar(nombre,apellido,email,telefono);
-        });
-    });
-</script>
