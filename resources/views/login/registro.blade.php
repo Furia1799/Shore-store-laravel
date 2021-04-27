@@ -26,24 +26,30 @@
                 <form action="#" method="post">
                     <div class="form-group">
                         <label for="nombre">Nombre : </label>
-                        <input type="text" class="form-control" name="nombre" id="nombre"placeholder="Ingrese su Nombre">
+                        <input type="text" class="form-control" name="nombre" id="nombre"
+                               placeholder="Ingrese su Nombre" maxlength="25" minlength="5" pattern="[A-Z a-z]+"
+                               title="Solo letras del alfabeto" required >
                     </div>
                     <div class="form-group">
                         <label for="apellido">Apellido : </label>
-                        <input type="text" class="form-control" name="apellido" id="apellido"placeholder="Ingrese su apellido">
+                        <input type="text" class="form-control" name="apellido" id="apellido"
+                               placeholder="Ingrese su apellido" maxlength="25" minlength="5" pattern="[A-Z a-z]+"
+                               title="Solo letras del alfabeto" required >
                     </div>
                     <div class="form-group">
                         <label for="email">Email : </label>
-                        <input type="email" class="form-control" name="email" id="email"placeholder="Ingrese su email">
+                        <input type="email" class="form-control" name="email" id="email"
+                               placeholder="Ingrese su email" maxlength="25" minlength="5" required >
                     </div>
                     <div class="form-grup">
                         <label for="password">Contrasena : </label>
-                        <input type="password" class="form-control" name="password" id="password" placeholder="Ingrese su contrasena">
+                        <input type="password" class="form-control" name="password" id="password"
+                               placeholder="Ingrese su contrasena" maxlength="25" minlength="5" required >
                     </div>
                     <br>
                     <div class="form-group">
                         <input type="submit" class="btn btn-success" value="Submit">
-                        <a href="../index.php">
+                        <a href="../../../../index.php">
                             <button type="button" class="btn btn-danger">Regresar</button>
                         </a>
                     </div>
