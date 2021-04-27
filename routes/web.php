@@ -23,5 +23,7 @@ Route::view('/registro', 'login.registro');
 Route::view('/hombres', 'principal.hombres');
 Route::view('/mujeres', 'principal.mujeres');
 Route::view('/producto', 'principal.producto');
+Route::view('/producto/carrito', 'producto.carrito');
+
 
 
