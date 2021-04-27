@@ -17,10 +17,11 @@ Route::get('/', function () {
     return view('welcome');
 });*/
 Route::view('/', 'index');
-Route::view('/login', 'php.login');
-Route::view('/hombres', 'php.hombres');
-Route::view('/mujeres', 'php.mujeres');
-Route::view('/registro', 'php.registro');
-Route::view('/producto', 'php.producto');
-Route::view('/administrar_productos', 'php.administrar_productos.administrar_productos');
+Route::view('/administrar_productos', 'administrador.administrar_productos.administrar_productos');
+Route::view('/login', 'login.login');
+Route::view('/registro', 'login.registro');
+Route::view('/hombres', 'principal.hombres');
+Route::view('/mujeres', 'principal.mujeres');
+Route::view('/producto', 'principal.producto');
+
 
