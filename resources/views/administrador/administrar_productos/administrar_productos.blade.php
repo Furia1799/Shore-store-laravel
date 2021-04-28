@@ -68,16 +68,23 @@
             </li>
         </ul>
     </nav>
+    <!--TITLE-->
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
                 <h1 id="productos_titulo" class="display-4 text-center">Administrar Productos</h1>
             </div>
-
         </div>
     </div>
+    <!--CONTENIDO-->
     <div class="container">
         <div class="row">
+            <div class="col-lg-12">
+                <a href="index.php">
+                    <button type="button" class="btn btn-primary">Agregar</button>
+                </a>
+                <br>
+            </div>
             <div class="col-lg-12">
                 <div id="tabla_productos" class="table-responsive-sm">
                     <table class="table table-striped">
