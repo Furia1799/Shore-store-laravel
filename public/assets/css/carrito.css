@@ -1,0 +1,14 @@
+#peque_descripccion_producuto{
+    padding-left: 50px;
+    padding-right: 50px
+}
+
+#cantidad_producto{
+    padding-left: 40px;
+    padding-right: 40px
+}
+
+#precio_producto{
+    margin: 0px;
+    text-align: center;
+}
