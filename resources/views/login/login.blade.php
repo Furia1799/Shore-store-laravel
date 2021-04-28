@@ -25,11 +25,13 @@
                 <form action="#" method="post">
                     <div class="form-group">
                         <label for="email">Email : </label>
-                        <input type="text" class="form-control" name="email" id="email"placeholder="Ingrese su Email">
+                        <input type="text" class="form-control" name="email" id="email"
+                               placeholder="Ingrese su Email"  maxlength="50" required >
                     </div>
                     <div class="form-grup">
                         <label for="password">Contrasena : </label>
-                        <input type="password" class="form-control" name="password" id="password" placeholder="Ingrese su contrasena">
+                        <input type="password" class="form-control" name="password" id="password"
+                               placeholder="Ingrese su contrasena"  maxlength="50" required >
                     </div>
                     <br>
                     <div class="form-group">
