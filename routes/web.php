@@ -23,7 +23,16 @@ Route::view('/registro', 'login.registro');
 Route::view('/hombres', 'principal.hombres');
 Route::view('/mujeres', 'principal.mujeres');
 Route::view('/producto', 'principal.producto');
-Route::view('/producto/carrito', 'producto.carrito');
+Route::view('/producto/carrito', 'cliente.carrito');
 
+Route::view('/administracion', 'cliente.carrito');
+Route::view('/administracion/prodcutos', 'administrador.administrar_productos.administrar_productos');
+
+Route::view('/administracion/marcas', 'administrador.administrar_productos.administrar_productos');
+
+Route::view('/administracion/ordenes', 'administrador.administrar_productos.administrar_productos');
+
+Route::view('/administracion/categorias', 'administrador.administrar_categorias.administrar_categorias');
+Route::view('/administracion/categorias/agregar', 'administrador.administrar_categorias.crud.modal_add');
 
 
