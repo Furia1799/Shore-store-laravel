@@ -16,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });*/
+
+//RUTAS CON VIEW
+/*
 Route::view('/', 'index');
 Route::view('/administrar_productos', 'administrador.administrar_productos.administrar_productos');
 Route::view('/login', 'login.login');
@@ -34,5 +37,44 @@ Route::view('/administracion/ordenes', 'administrador.administrar_productos.admi
 
 Route::view('/administracion/categorias', 'administrador.administrar_categorias.administrar_categorias');
 Route::view('/administracion/categorias/agregar', 'administrador.administrar_categorias.crud.modal_add');
+*/
+
+//RUTAS CON FUNCION
+Route::get('/', function(){
+    return view('index');
+});
+
+Route::get('/master', function(){
+    if(View::exists('base.master')){
+        return view('base.master');
+    }else{
+        return "la ruta del arhivo no corresponde o el archivp no existe";
+    }
+});
+
+Route::get('/login', function(){
+    return view('login.login');
+});
+
+Route::get('/registro', function(){
+    return view('login.registro');
+});
+
+Route::get('/novedades', function(){
+    return view('base.novedades');
+});
+
+
+Route::get('/hombres', function(){
+    return view('principal.hombres');
+});
+
+Route::get('/mujeres', function(){
+    return view('principal.mujeres');
+});
+
+Route::get('/carrito', function(){
+    return view('cliente.carrito');
+});
 
 
