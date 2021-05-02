@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<!--HEAD-->
 <head>
     <title>Shoe'store | Bienvenido </title>
     <meta charset="UTF-8">
@@ -17,6 +18,7 @@
     <link rel="stylesheet" href="../assets/css/index.css">
 </head>
 <body>
+<!--HEADER-->
     <header>
         <div id="titulo" class="jumbotron jumbotron-fluid ">
             <div class="row justify-content-center">
@@ -30,7 +32,7 @@
         </div>
     </header>
     <section>
-        <!--MENU-->
+<!--NAVBAR-->
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top ">
             <a class="navbar-brand" href="#">
                 <img src="../assets/img/Logo.jpg" alt="Shoe'store" width="50" height="50">
@@ -67,6 +69,7 @@
                 </li>
             </ul>
         </nav>
+<!--CONTENIDO-->
         <div class="container-fluid">
             <div  class="row">
                 <div class="col-lg-12">
@@ -144,6 +147,7 @@
             </div>
         </div>
     </section>
+<!--FOOTER-->
     <footer class="footer py-4">
         <div class="container">
             <div class="row align-items-center">
