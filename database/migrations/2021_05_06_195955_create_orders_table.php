@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Orders extends Migration
+class CreateOrdersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,16 @@ class Orders extends Migration
      */
     public function up()
     {
-        Schema::create('orders', function(Blueprint $table){
+        Schema::create('orders', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->foreignId('id_user')->unique();
-            $table->foreignId('id_direction')->unique();
+            $table->foreignId('id_user');
+            $table->foreignId('id_direction');
             $table->double('cost');
-            $table->string('status');
+            $table->string('status',50);
             $table->dateTime('date');
+
+            $table->foreign('id_user')->references('id')->on('users');
+            $table->foreign('id_direction')->references('id')->on('directions');
         });
     }
 

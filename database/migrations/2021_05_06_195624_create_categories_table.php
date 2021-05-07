@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Directions extends Migration
+class CreateCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class Directions extends Migration
      */
     public function up()
     {
-        Schema::create('directions', function(Blueprint $table){
+        Schema::create('categories', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('country');
-            $table->string('provincia');
-            $table->string('city');
-            $table->string('address');
+            $table->string('name',50);
         });
     }
 
@@ -29,6 +26,6 @@ class Directions extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('directions');
+        Schema::dropIfExists('categories');
     }
 }

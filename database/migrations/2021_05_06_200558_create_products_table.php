@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Products extends Migration
+class CreateProductsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,13 +15,14 @@ class Products extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table-> foreignId('id_brand')->unique();
-            $table-> string('name');
-            $table->integer('unit');
+            $table->foreignId('id_brand');
+            $table->string('name',50);
             $table->text('description');
             $table->double('price');
-            $table->integer('Stock');
+            $table->integer('stock');
             $table->binary('image');
+
+            $table->foreign('id_brand')->references('id')->on('brands');
         });
     }
 

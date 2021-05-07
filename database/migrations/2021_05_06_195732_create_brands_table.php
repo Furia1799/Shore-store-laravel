@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class ListOrdes extends Migration
+class CreateBrandsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class ListOrdes extends Migration
      */
     public function up()
     {
-        Schema::create('list_ordes', function (Blueprint $table) {
+        Schema::create('brands', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table-> foreignId('id_order')->unique();;
-            $table-> foreignId('id_product')->unique();;
-            $table->integer('unit');
+            $table->string('name',50);
         });
     }
 
@@ -28,6 +26,6 @@ class ListOrdes extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('list_ordes');
+        Schema::dropIfExists('brands');
     }
 }
