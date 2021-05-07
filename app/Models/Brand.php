@@ -5,14 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class User extends Model
+class Brand extends Model
 {
     use HasFactory;
 
     //uno a muchos
-    public function orders()
+    public function products()
     {
-        return $this->hasMany(Order::class, 'id_user');
+        return $this->hasMany(Product::class, 'id_brand');
     }
-
 }
