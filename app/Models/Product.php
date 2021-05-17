@@ -8,10 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model{
     use HasFactory;
 
-   /* public function category()
-    {
-        return $this->belongsTo(Category::class, 'id_category');
-    }*/
+    //eliminar update_at y create_at
+    public $timestamps = false;
 
     //uno a muchos
     public function brand()

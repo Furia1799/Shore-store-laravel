@@ -9,6 +9,8 @@ class Category extends Model
 {
     use HasFactory;
     protected $table = 'categories';
+    //eliminar update_at y create_at
+    public $timestamps = false;
 
     //muchos a muchos
     public function products(){

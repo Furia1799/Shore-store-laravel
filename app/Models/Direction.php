@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Direction extends Model
 {
     use HasFactory;
+    //eliminar update_at y create_at
+    public $timestamps = false;
 
     //uno a muchos
     public function orders()
