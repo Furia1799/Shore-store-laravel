@@ -73,6 +73,10 @@ Route::get('/mujeres', function(){
     return view('principal.mujeres');
 });
 
+Route::get('/producto', function(){
+    return view('principal.producto');
+});
+
 Route::get('/carrito', function(){
     return view('cliente.carrito');
 });
