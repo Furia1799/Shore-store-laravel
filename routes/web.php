@@ -20,7 +20,7 @@ Route::get('/', function () {
 //RUTAS CON VIEW
 /*
 Route::view('/', 'index');
-Route::view('/administrar_productos', 'administrador.administrar_productos.administrar_productos');
+Route::view('/productos', 'administrador.productos.productos');
 Route::view('/login', 'login.login');
 Route::view('/registro', 'login.registro');
 Route::view('/hombres', 'principal.hombres');
@@ -29,14 +29,14 @@ Route::view('/producto', 'principal.producto');
 Route::view('/producto/carrito', 'cliente.carrito');
 
 Route::view('/administracion', 'cliente.carrito');
-Route::view('/administracion/prodcutos', 'administrador.administrar_productos.administrar_productos');
+Route::view('/administracion/prodcutos', 'administrador.productos.productos');
 
-Route::view('/administracion/marcas', 'administrador.administrar_productos.administrar_productos');
+Route::view('/administracion/marcas', 'administrador.productos.productos');
 
-Route::view('/administracion/ordenes', 'administrador.administrar_productos.administrar_productos');
+Route::view('/administracion/ordenes', 'administrador.productos.productos');
 
-Route::view('/administracion/categorias', 'administrador.administrar_categorias.administrar_categorias');
-Route::view('/administracion/categorias/agregar', 'administrador.administrar_categorias.crud.modal_add');
+Route::view('/administracion/categorias', 'administrador.categorias.categorias');
+Route::view('/administracion/categorias/agregar', 'administrador.categorias.crud.modal_add');
 */
 
 //RUTAS CON FUNCION
@@ -81,4 +81,15 @@ Route::get('/carrito', function(){
     return view('cliente.carrito');
 });
 
+Route::get('/administrador', function (){
+    return view('administrador.base.master');
+});
+
+Route::get('/administrador', function (){
+    return view('administrador.base.master');
+});
+
+Route::get('/tipo_administrador', function (){
+    return view('administrador.base.tipo_administrar');
+});
 
