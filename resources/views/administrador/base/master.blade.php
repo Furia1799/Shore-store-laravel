@@ -7,11 +7,9 @@
 @include('base.header')
 <section>
     <!--NAVBAR-->
-@include('administrador.base.navbar')
+    @include('administrador.base.navbar')
 <!--CONTENIDO-->
-    <div class="container-fluid">
-        @yield('contenido_administrador')
-    </div>
+    @yield('contenido_administrador')
 </section>
 <!--FOOTER-->
 @include('base.footer')

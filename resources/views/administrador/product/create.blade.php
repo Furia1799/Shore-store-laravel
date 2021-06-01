@@ -2,7 +2,7 @@
 
 @section('title', 'producto_mostrar')
 
-@section('content')
+@section('contenido_administrador')
     <div class="row">
         <div class="col-lg-12">
             <h1 id="productos_titulo" class="display-4 text-center">Administrar Productos</h1>
