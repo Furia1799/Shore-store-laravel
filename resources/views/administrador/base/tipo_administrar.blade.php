@@ -38,7 +38,7 @@
                 </a>
             </div>
             <div  id="imagen_prodcuto" class="col-lg-4">
-                <a href="producto">
+                <a href="{{url('/products')}}">
                     <img class="imagen_producto" src="../assets/img/tennis_2.jpg" class="rounded" alt="tennis_2" width="300" height="300">
                     <h2 class="titulo_producto" >PRODUCTOS</h2>
                 </a>

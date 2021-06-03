@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +21,7 @@ Route::get('/', function () {
 //RUTAS CON VIEW
 /*
 Route::view('/', 'index');
-Route::view('/product', 'administrador.product.product');
+Route::view('/products', 'administrador.products.products');
 Route::view('/login', 'login.login');
 Route::view('/registro', 'login.registro');
 Route::view('/hombres', 'principal.hombres');
@@ -29,11 +30,11 @@ Route::view('/producto', 'principal.producto');
 Route::view('/producto/carrito', 'cliente.carrito');
 
 Route::view('/administracion', 'cliente.carrito');
-Route::view('/administracion/prodcutos', 'administrador.product.product');
+Route::view('/administracion/prodcutos', 'administrador.products.products');
 
-Route::view('/administracion/marcas', 'administrador.product.product');
+Route::view('/administracion/marcas', 'administrador.products.products');
 
-Route::view('/administracion/ordenes', 'administrador.product.product');
+Route::view('/administracion/ordenes', 'administrador.products.products');
 
 Route::view('/administracion/categorias', 'administrador.categorias.categorias');
 Route::view('/administracion/categorias/agregar', 'administrador.categorias.crud.modal_add');
@@ -89,13 +90,19 @@ Route::get('/administrador', function (){
     return view('administrador.base.tipo_administrar');
 });
 
-//Product
-Route::get('/product', function (){
-    return view('administrador.product.index');
+//Product 1
+/*
+Route::get('/products', function (){
+    return view('administrador.products.index');
 });
 
 Route::get('/prodcut/create', function (){
-    return view('administrador.product.create');
+    return view('administrador.products.create');
 });
+*/
+
+//Controlador de Product 2
+
+Route::resource('/products', ProductController::class);
 
 
