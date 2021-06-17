@@ -1,6 +1,7 @@
 @if($accion = Session::get('accion'))
     @if($accion == 'eliminar')
         @if($product = Session::get('product'))
+            @if($brand_name = Session::get('brand_name'))
 
             <script>
                 $(document).ready(function () {
@@ -26,10 +27,7 @@
                                 <div class="form-group">
                                     <label for="brand">Marca :</label>
                                     <select class="form-control" name="id_brand" id="brand" readonly>
-                                        <option>Nike</option>
-                                        <option>Adidas</option>
-                                        <option>Umbro</option>
-                                        <option>Pirma</option>
+                                        <option>{{$brand_name}}</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
@@ -53,9 +51,10 @@
                                            value="{{$product->stock}}" readonly >
                                 </div>
                                 <br>
-                                <div class="custom-file">
-                                    <input type="file" class="custom-file-input" name="image" id="image" value="{{$product->image}}" readonly>
-                                    <label class="custom-file-label" for="image">Agregar Imagenes</label>
+                                <div>
+                                    <label>Imagen :</label>
+                                    <br>
+                                    <img src="{{$product->image}}" class="img-thumbnail mx-auto d-block" width="250" height="250">
                                 </div>
                                 <br>
                                 <br>
@@ -70,7 +69,7 @@
                     </div>
                 </div>
             </div>
-
+            @endif
         @endif
     @endif
 @endif

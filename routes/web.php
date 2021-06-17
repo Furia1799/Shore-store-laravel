@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -102,7 +103,11 @@ Route::get('/prodcut/create', function (){
 */
 
 //Controlador de Product 2
-
 Route::resource('/products', ProductController::class);
 
+//controlador de User
+Route::resource('/users', UserController::class);
 
+Route::get('/muestra_user', function(){
+    return view('cliente.users.index');
+});

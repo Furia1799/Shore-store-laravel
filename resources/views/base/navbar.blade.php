@@ -19,9 +19,9 @@
     </ul>
     <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-            <a class="nav-link" href="{{url('/registro')}}">
-                <button type="button" class="btn btn-info">Registrar</button>
-            </a>
+            <button id="btn_registro" type="button" class="btn btn-info" data-toggle="modal" data-target="#modalAdd">
+                    Registrar
+            </button>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="{{url('/login')}}">
@@ -35,3 +35,5 @@
         </li>
     </ul>
 </nav>
+
+@include('cliente.users.modal_create')

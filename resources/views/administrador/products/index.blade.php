@@ -4,6 +4,7 @@
 
 @section('contenido_administrador')
     <link rel="stylesheet" href="../assets/css/tabla.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
 
     <div class="row">
         <div class="col-lg-12">
@@ -14,9 +15,11 @@
         <div class="row">
             <div class="col-lg-12">
                 <!-- Button to Open the Modal -->
-                <button id="boton" type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalAdd">
-                    AGREGAR
-                </button>
+                <a href="/products/create">
+                    <button id="boton" type="button" class="btn btn-primary">
+                        AGREGAR
+                    </button>
+                </a>
             </div>
         </div>
         <br>
@@ -28,8 +31,32 @@
         @include('administrador.products.modal_delete')
 
         @if($message = Session::get('estado'))
-            <div class="alert alert-success">
-                <p>{{ $message }}</p>
+            @if($message == 'Creado')
+                <div class="alert alert-success">
+                    <strong>{{ $message }}!</strong>
+                </div>
+            @endif
+            @if($message == 'Actualizado')
+                <div class="alert alert-primary">
+                    <strong>{{ $message }}!</strong>
+                </div>
+            @endif
+            @if($message == 'Eliminado')
+                <div class="alert alert-danger">
+                    <strong>{{ $message }}!</strong>
+                </div>
+            @endif
+        @endif
+
+        @if(count($errors) > 0)
+            <div class="alert alert-danger">
+                <strong>Error de Formulario</strong>
+                <p>Corrige los siguientes errores:</p>
+                <ul>
+                    @foreach ($errors->all() as $message)
+                        <li>{{ $message }}</li>
+                    @endforeach
+                </ul>
             </div>
         @endif
 
@@ -38,51 +65,8 @@
         <div class="row">
             <div class="col-lg-12">
                 <div id="tabla_productos" class="table-responsive-sm">
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th>id</th>
-                                <th>Categoria</th>
-                                <th>nombre</th>
-                                <th>Descripccion</th>
-                                <th>precio</th>
-                                <th>stock</th>
-                                <th>Imagen</th>
-                                <th>Editar</th>
-                                <th>Eliminar</th>
-                            </tr>
-                        </thead>
-                        <tbody>
+                    <table class="table table-striped" id="tablaProductos">
 
-                        @foreach($products as $product)
-                            <tr>
-                                <td>{{$product->id}}</td>
-                                <td>{{$product->id_brand}}</td>
-                                <td>{{$product->name}}</td>
-                                <td>{{$product->description}}</td>
-                                <td>{{$product->price}}</td>
-                                <td>{{$product->stock}}</td>
-                                <td><img src="{{$product->descripcion}}"
-                                         height="75" width="75" alt="">
-                                </td>
-                                <td>
-                                    <a href="/products/{{$product->id}}/edit">
-                                        <button type="button" class="btn btn-warning">
-                                            <i id="pencil" class="bi bi-pencil-fill"></i>
-                                        </button>
-                                    </a>
-                                </td>
-                                <td>
-                                    <a href="/products/{{$product->id}}">
-                                        <button class="btn btn-danger">
-                                            <i id="tacha"class="bi bi-x"></i>
-                                        </button>
-                                    </a>
-                                </td>
-                            </tr>
-                        @endforeach
-
-                        </tbody>
                     </table>
                 </div>
                 <br>
@@ -90,5 +74,30 @@
         </div>
         @endisset
     </div>
+
+    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#tablaProductos').DataTable( {
+                "ajax": '/products',
+                processing: true,
+                serverSide: true,
+                dom: 'Bfrtip',
+                columns: [
+                    { title: "Id", data: "id"},
+                    { title: "Marca",data: "brand.name" },
+                    { title: "Nombre" ,data: "name" ,},
+                    { title: "Descripccion", data: "description" },
+                    { title: "Precio", data: "price" },
+                    { title: "Stock" , data: "stock", },
+                    { title: "Imagen", data: "image" , width: '100px', orderable: false, searchable: false },
+                    { title: "Editar", data: "editar", orderable: false, searchable: false},
+                    { title: "Eliminar", data: "eliminar", orderable: false, searchable: false},
+
+                ]
+
+            } );
+        } );
+    </script>
 
 @endsection

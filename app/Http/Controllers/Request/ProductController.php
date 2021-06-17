@@ -7,7 +7,6 @@ use App\Models\Product;
 use App\Models\Brand;
 use Yajra\DataTables\Contracts\DataTable;
 use Yajra\DataTables\Facades\DataTables;
-use App\Http\Requests\ProductsRequest;
 
 class ProductController extends Controller
 {
@@ -26,41 +25,30 @@ class ProductController extends Controller
             ,'products.description','products.price','products.stock','products.image')
             ->join('brands','brands.id', '=' ,'products.id_brand')->get();*/
 
-        $products = Product::with('brand')->orderByDesc('id');//relacion con brand
+        $products = Product::with('brand');
+        //dd($products);
         //$products = Product::query();
         //dd($products);
-        if(request()->ajax() or request()->expectsJson()){ //verifico que venga en ajax o json
+        if(request()->ajax() or request()->expectsJson()){
             return DataTables::of($products)
-                ->addColumn('editar', function($product) {
-                    $route = route('products.edit',['product' => $product->id]); //añadir la ruta
-                    //return "<a href='{$route}'>Editar</a>";
-                    return "<a href='{$route}'>
-                                <button type='button' class='btn btn-warning'>
-                                    <i id='pencil' class='bi bi-pencil-fill'></i>
-                                </button>
-                            </a>";
+                ->addColumn('editar', function( $product) {
+                    $route = route('products.edit',['product' => $product->id]);
+                    return "<a href='{$route}'>Editar</a>";
                 })
                 ->addColumn('eliminar', function( $product) {
                     $route = route('products.destroy',['product' => $product->id]);
-                    //return "<a href='{$route}'>Eliminar</a>";
-                    return "<a href='{$route}'>
-                                <button type='button' class='btn btn-danger'>
-                                    <i id='tacha' class='bi bi-x'></i>
-                                </button>
-                            </a>";
+                    return "<a href='{$route}'>Eliminar</a>";
                 })
                 ->editColumn('price', function($product){
-                    return "$" . $product->price . " MXN";
+                    return "$" . $product->price . "MXN";
                 })
                 ->editColumn('image', function( $product) {
-                    //$ruta_image = route('public/',$product->image);
-
-                    return "<img src='{$product->image}' width='100px' height='100px'>"; //edite
+                    return "<img src='https://vermutas.com/wp-content/uploads/2020/05/WINGS-Shorts-Blue-front.jpg' width='100px' height='100px'>";
                 })
-                ->rawColumns(["editar", "eliminar", "image"]) //renderizar
+                ->rawColumns(["editar", "eliminar", "image"])
                 ->make();
 
-
+            https://vermutas.com/wp-content/uploads/2020/05/WINGS-Shorts-Blue-front.jpg
         }
 
         return view('administrador.products.index')->with('products', $products); //vista a mandar
@@ -75,8 +63,7 @@ class ProductController extends Controller
     public function create()
     {
         //Mostrar formulario Product
-        //$brands = $this->BrandsAll();
-        $brands = Brand::all();
+        $brands = $this->BrandsAll();
 
         return redirect()->route('products.index')
             ->with('brands',$brands)
@@ -89,7 +76,7 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ProductsRequest $request)
+    public function store(Request $request)
     {
         //guardar producto POST
         $products = new Product(); //Crear objeto de Product
@@ -102,16 +89,10 @@ class ProductController extends Controller
         /*$imagen = $request->file('image');
         $nombre = $imagen->getClientOriginalName();
         $formato = $imagen->getClientOriginalExtension();
-        $imagen->move('images/products', $nombre);
-        $products->image = $request->file('image');*/
-        $imagen = $request->file('image');
-        $nombre_image = time(). '_' . $imagen->getClientOriginalName(). '.' . $imagen->getClientOriginalExtension();
-        $url_image = 'images/products';
-        $destino = public_path($url_image);
-        $imagen->move($destino,$nombre_image);
-        $products->image = $url_image. '/' .$nombre_image;
+        $imagen->move('images/products', $nombre);*/
+        $products->image = $request->file('image');
+
         $products->save();
-        //dd($products);
 
         return redirect()->route('products.index')->with('estado', 'Creado'); //ir de nuevo al controlador index
     }
@@ -125,12 +106,8 @@ class ProductController extends Controller
     public function show($id)
     {
         //mostrar solo un producto
-        //$product = Product::find($id);
-        /*$product = Product::join('brand', 'product.id_brand', '=', 'brand.id')
-        ->where('product.id', $id)->get();*/
         $product = Product::find($id);
-        $brand_name = $product->brand->name; //relacion de join con eloquet
-
+        $brand_name = $this->brandName($id);
 
         return redirect()->route('products.index')->with('product',$product)
             ->with('brand_name',$brand_name)
@@ -148,8 +125,7 @@ class ProductController extends Controller
         // mostrar modal edit
         $product = Product::find($id);
 
-        //$brands = $this->brandsAll();
-        $brands = Brand::all();
+        $brands = $this->brandsAll();
 
         return redirect()->route('products.index')->with('product',$product)
             ->with('brands',$brands)
@@ -180,17 +156,9 @@ class ProductController extends Controller
             $formato = $imagen->getClientOriginalExtension();
             $imagen->move('images/products', $nombre);
             $product->descripcion = $nombre; // no muy seguro
-        }
+        }*/
         //$product->image = $request->file('image');
-        $product->image = $request->input('image');*/
-
-        $imagen = $request->file('image');
-        $nombre_image = time(). '_' . $imagen->getClientOriginalName(). '.' . $imagen->getClientOriginalExtension();
-        $url_image = 'images/products';
-        $destino = public_path($url_image);
-        $imagen->move($destino,$nombre_image);
-        $product->image = $url_image. '/' .$nombre_image;
-
+        $product->image = $request->input('image');
         $product->save(); //updtae
 
         return redirect()->route('products.index')->with('estado','Actualizado');
@@ -214,15 +182,15 @@ class ProductController extends Controller
 
     }
 
-   /* //obtener todas las marcas
+    //obtener todas las marcas
     public function brandsAll(){
         $brands = Brand::all();
 
         return $brands;
-    }*/
+    }
 
     //obtener nombre de la marca
-    /*public function BrandName($id){
+    public function BrandName($id){
         $brand_name = '';
 
         $brand_name = $brand_name = Product::select('brands.name as brand_name')
@@ -230,5 +198,5 @@ class ProductController extends Controller
             ->where('products.id',$id)->get();
 
         return $brand_name;
-    }*/
+    }
 }

@@ -49,7 +49,7 @@
                     <br>
                     <div class="form-group">
                         <input type="submit" class="btn btn-success" value="Submit">
-                        <a href="../../../../index.php">
+                        <a href="../../../../../index.php">
                             <button type="button" class="btn btn-danger">Regresar</button>
                         </a>
                     </div>
