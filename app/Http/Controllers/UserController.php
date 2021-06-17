@@ -13,11 +13,10 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
+    public function index()
     {
-        //
-       // $user = User::find($id);
-       // return view('cliente.users.index')->with('user',$user);
+       //$user = User::find($id)->get();
+       return view('cliente.users.index');
     }
 
     /**
@@ -48,7 +47,7 @@ class UserController extends Controller
 
         $users->save();
 
-       return redirect()->route('users.index')->with('estado','creado');
+       return redirect()->route('users.index')->with('estado','Creado');
     }
 
     /**
@@ -60,8 +59,8 @@ class UserController extends Controller
     public function show($id)
     {
         $user = User::find($id);
-        //return redirect()->route('users.index')->with('user',$user)->with('id',$id);
-        return view('cliente.users.index')->with('user',$user);
+        return redirect()->route('users.index')->with('user',$user)->with('accion', 'eliminar');
+        //return view('cliente.users.index')->with('user',$user);
     }
 
     /**
@@ -74,7 +73,7 @@ class UserController extends Controller
     {
         //mostrar modal de editar
         $user = User::find($id);
-        return redirect()->route('users.index')->with('users',$user)->with('accion','editar');
+        return redirect()->route('users.index')->with('user',$user)->with('accion','editar');
     }
 
     /**
@@ -94,7 +93,7 @@ class UserController extends Controller
         $user->password = $request->get('password');
 
         $user->save();
-        return redirect()->route('users.index')->with('estado','actualizado');
+        return redirect()->route('users.index')->with('user', $user)->with('estado','Actualizado');
 
     }
 
@@ -106,15 +105,18 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::find($id);
+        $user->delete();
+
+        return view('index.php');
     }
 
     //mostrar un solo usuario
     public function index_one($id)
     {
         // mostrar modal
-        $product = Product::find($id);
-        return redirect()->route('products.index')->with('product',$product)->with('accion', 'editar');
+        $user = User::find($id);
+        return redirect()->route('users.index')->with('user',$user);
     }
 
 }

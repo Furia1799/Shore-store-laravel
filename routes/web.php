@@ -107,7 +107,10 @@ Route::resource('/products', ProductController::class);
 
 //controlador de User
 Route::resource('/users', UserController::class);
+Route::get('users/perfil/{index}', [UserController::class,'index_one']);
 
 Route::get('/muestra_user', function(){
     return view('cliente.users.index');
 });
+
+
