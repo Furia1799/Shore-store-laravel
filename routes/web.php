@@ -3,6 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\BrandController;
+use App\Http\Controllers\CategoryController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -33,12 +37,12 @@ Route::view('/producto/carrito', 'cliente.carrito');
 Route::view('/administracion', 'cliente.carrito');
 Route::view('/administracion/prodcutos', 'administrador.products.products');
 
-Route::view('/administracion/marcas', 'administrador.products.products');
+Route::view('/administracion/brands', 'administrador.products.products');
 
 Route::view('/administracion/ordenes', 'administrador.products.products');
 
-Route::view('/administracion/categorias', 'administrador.categorias.categorias');
-Route::view('/administracion/categorias/agregar', 'administrador.categorias.crud.modal_add');
+Route::view('/administracion/categories', 'administrador.categories.categories');
+Route::view('/administracion/categories/agregar', 'administrador.categories.crud.modal_add');
 */
 
 //RUTAS CON FUNCION
@@ -108,6 +112,16 @@ Route::resource('/products', ProductController::class);
 //controlador de User
 Route::resource('/users', UserController::class);
 Route::get('users/perfil/{index}', [UserController::class,'index_one']);
+
+/**
+ * Controlador de Brand
+ */
+Route::resource('/brands',BrandController::class);
+
+/**
+ * Controlador de Category
+ */
+Route::resource('/categories',CategoryController::class);
 
 Route::get('/muestra_user', function(){
     return view('cliente.users.index');

@@ -182,7 +182,7 @@ class ProductController extends Controller
 
     }
 
-    //obtener todas las marcas
+    //obtener todas las brands
     public function brandsAll(){
         $brands = Brand::all();
 
