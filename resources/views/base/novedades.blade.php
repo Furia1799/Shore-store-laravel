@@ -9,6 +9,10 @@
             <h1 id="productos_titulo" class="display-4 text-center">Productos para Novedades</h1>
         </div>
     </div>
+
+    @include('cliente.users.modal_create')
+
+
     <div  class="row">
         <div id="imagen_prodcuto" class="col-lg-4">
             <a href="producto ">

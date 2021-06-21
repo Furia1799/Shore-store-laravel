@@ -122,7 +122,7 @@ Route::get('/logout', [AutenticacionController::class,'logout']);
 Route::resource('/products', ProductController::class);
 
 //controlador de User
-Route::resource('/users', UserController::class)->middleware('auth');
+Route::resource('/users', UserController::class);
 Route::get('users/perfil/{index}', [UserController::class,'index_one']);
 
 /**

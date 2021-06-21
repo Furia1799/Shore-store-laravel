@@ -27,7 +27,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return redirect('/novedades')->with('accion','crear');
     }
 
     /**
@@ -48,7 +48,16 @@ class UserController extends Controller
 
         $users->save();
 
-       return redirect()->route('users.index')->with('estado','Creado');
+        //logearse al mismo tiempo de agregar usuario
+
+        if ($users->rol == 'Cliente'){
+            return redirect('/login');
+        }
+
+        if ($users->rol == 'Admin'){
+            return redirect()->route('users.index')->with('estado','Creado');
+        }
+
     }
 
     /**

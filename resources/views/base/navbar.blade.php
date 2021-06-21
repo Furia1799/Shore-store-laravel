@@ -13,7 +13,7 @@
             <a class="nav-link" href="{{url('/hombres')}}">Hombre</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{url('/')}}">Novedades</a>
+            <a class="nav-link" href="{{url('/novedades')}}">Novedades</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="#">Nosotros</a>
@@ -22,13 +22,21 @@
     <ul class="navbar-nav ml-auto">
         @guest()
         <li class="nav-item">
-            <a id="btnRegistrar" class="nav-link btn btn-primary" href="">Registrar</a>
+            <a id="btnRegistrar" class="nav-link btn btn-primary" href="/users/create">Registrar</a>
         </li>
         <li class="nav-item">
             <a id="btnIniciarSesion" class="nav-link btn btn-success" href="{{url('/login')}}">Iniciar Sesion</a>
         </li>
         @endguest
         @auth
+                @if($usuario = Auth::user())
+
+
+                <p id="bienvenido">Bienvenido {{$usuario->name}}</p>
+        <li class="nav-item">
+            <a id="btnMiCuenta" class="nav-link btn btn-light" href="{{'/users/perfil/'. $usuario->id}}">Mi Cuenta</a>
+        </li>
+                @endif
         <li class="nav-item">
             <a id="btnSalir" class="nav-link btn btn-danger" href="{{url('/logout')}}">Cerrar Sesion</a>
         </li>
