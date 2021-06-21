@@ -22,7 +22,8 @@
         <br>
         <div class="row justify-content-center" >
             <div id="formulario" class="col-lg-4">
-                <form action="#" method="post">
+                <form action="/log_in" method="POST">
+                    @csrf
                     <div class="form-group">
                         <label for="email">Email : </label>
                         <input type="text" class="form-control" name="email" id="email"
@@ -41,6 +42,11 @@
                         </a>
                     </div>
                 </form>
+                @if($message = Session::get('mensaje'))
+                        <div class="alert alert-success">
+                            <strong>{{ $message }}!</strong>
+                        </div>
+                @endif
             </div>
         </div>
     </div>

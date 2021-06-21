@@ -5,6 +5,8 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\AutenticacionController;
+
 
 
 
@@ -106,11 +108,21 @@ Route::get('/prodcut/create', function (){
 });
 */
 
+
+/**
+ * Controlador login
+ */
+
+//Route::resource('/login', AutenticacionController::class);
+Route::get('/login', [AutenticacionController::class,'show_login'])->name('login');
+Route::post('/log_in', [AutenticacionController::class,'login']);
+Route::get('/logout', [AutenticacionController::class,'logout']);
+
 //Controlador de Product 2
 Route::resource('/products', ProductController::class);
 
 //controlador de User
-Route::resource('/users', UserController::class);
+Route::resource('/users', UserController::class)->middleware('auth');
 Route::get('users/perfil/{index}', [UserController::class,'index_one']);
 
 /**
@@ -126,5 +138,4 @@ Route::resource('/categories',CategoryController::class);
 Route::get('/muestra_user', function(){
     return view('cliente.users.index');
 });
-
 

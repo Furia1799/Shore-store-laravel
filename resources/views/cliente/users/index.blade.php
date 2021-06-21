@@ -78,7 +78,20 @@
             </div>
         </div>
         <br>
+
     </div>
 
+
+    @endif
+    <div class="row">
+        <div class="col-lg-12">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalAdd">
+                Open modal
+            </button>
+        </div>
+    </div>
+    @include('cliente.users.modal_create')
+    @if(Auth::check())
+        <p>Usuario autenticado</p>
     @endif
 @endsection

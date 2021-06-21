@@ -1,4 +1,6 @@
 <!--NAVBAR-->
+<link rel="stylesheet" href="../assets/css/navbar.css">
+
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top ">
     <a class="navbar-brand" href="#">
         <img src="../assets/img/Logo.jpg" alt="Shoe'store" width="50" height="50">
@@ -18,22 +20,21 @@
         </li>
     </ul>
     <ul class="navbar-nav ml-auto">
+        @guest()
         <li class="nav-item">
-            <button id="btn_registro" type="button" class="btn btn-info" data-toggle="modal" data-target="#modalAdd">
-                    Registrar
-            </button>
+            <a id="btnRegistrar" class="nav-link btn btn-primary" href="">Registrar</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{url('/login')}}">
-                <button type="button" class="btn btn-success">Iniciar Sesion</button>
-            </a>
+            <a id="btnIniciarSesion" class="nav-link btn btn-success" href="{{url('/login')}}">Iniciar Sesion</a>
         </li>
+        @endguest
+        @auth
         <li class="nav-item">
-            <a class="nav-link">
-                <button type="button" class="btn btn-danger">Salir</button>
-            </a>
+            <a id="btnSalir" class="nav-link btn btn-danger" href="{{url('/logout')}}">Cerrar Sesion</a>
         </li>
+            @endauth
     </ul>
+
 </nav>
 
 @include('cliente.users.modal_create')
