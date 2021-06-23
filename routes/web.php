@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\AutenticacionController;
+use App\Http\Controllers\ProductClienteController;
 
 
 
@@ -67,11 +68,11 @@ Route::get('/login', function(){
 Route::get('/registro', function(){
     return view('login.registro');
 });
-
+/*
 Route::get('/novedades', function(){
     return view('base.novedades');
 });
-
+*/
 
 Route::get('/hombres', function(){
     return view('principal.hombres');
@@ -120,6 +121,12 @@ Route::get('/logout', [AutenticacionController::class,'logout']);
 
 //Controlador de Product 2
 Route::resource('/products', ProductController::class);
+
+/**
+ * Controlador de Principal
+ */
+Route::get('/novedades', [ProductClienteController::class,'productsNovedades']);
+Route::get('/product/{id}',[ProductClienteController::class,'productIndividual']);
 
 //controlador de User
 Route::resource('/users', UserController::class);

@@ -105,11 +105,11 @@ class ProductController extends Controller
         $imagen->move('images/products', $nombre);
         $products->image = $request->file('image');*/
         $imagen = $request->file('image');
-        $nombre_image = time(). '_' . $imagen->getClientOriginalName(). '.' . $imagen->getClientOriginalExtension();
+        $nombre_image = time(). '_' . $imagen->getClientOriginalName();
         $url_image = 'images/products';
         $destino = public_path($url_image);
         $imagen->move($destino,$nombre_image);
-        $products->image = $url_image. '/' .$nombre_image;
+        $products->image = $url_image. '/' .$nombre_image; //GUARDAR URL
         $products->save();
         //dd($products);
 
@@ -185,7 +185,7 @@ class ProductController extends Controller
         $product->image = $request->input('image');*/
 
         $imagen = $request->file('image');
-        $nombre_image = time(). '_' . $imagen->getClientOriginalName(). '.' . $imagen->getClientOriginalExtension();
+        $nombre_image = time(). '_' . $imagen->getClientOriginalName();
         $url_image = 'images/products';
         $destino = public_path($url_image);
         $imagen->move($destino,$nombre_image);

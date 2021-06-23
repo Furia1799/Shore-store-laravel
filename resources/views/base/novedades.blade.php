@@ -12,75 +12,50 @@
 
     @include('cliente.users.modal_create')
 
+    <style >
 
-    <div  class="row">
-        <div id="imagen_prodcuto" class="col-lg-4">
-            <a href="producto ">
-                <img class="imagen_producto" src="../assets/img/tennis_1.jpg" class="rounded" alt="tennis_3" width="300" height="300">
-                <h2 class="titulo_producto"> zapatoos negros</h2>
-                <p class="precio_producto"> $ 300 pesos</p>
-            </a>
+        #imagen_tarjeta{
+            height:400px;
+        }
+
+        .card{
+            transition:0.5s;
+            cursor:pointer;
+        }
+
+        .card:hover{
+            transform: scale(1.05);
+            box-shadow: 10px 10px 15px rgba(0,0,0,0.3);
+        }
+
+
+    </style>
+
+    @isset($products)
+        <div  class="container">
+
+            <div id="album" class="row row-cols-3 g-3" >
+                {{--@dd($products) --}}
+                @foreach($products as $product)
+                <div class="col">
+                    <div class="card">
+                        <div  class="card-deck">
+                            <div id="tarjeta" class="card text-center bg-light border-light">
+                                <img id="imagen_tarjeta" class="card-img-top" src="{{$product->image}}"   alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{$product->name}}</h5>
+                                    <p class="blockquote-footer">{{$product->brand->name}}</p>
+                                    <p class="card-text">$ {{$product->price}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+
+                @endforeach
+            </div>
         </div>
-        <div  id="imagen_prodcuto" class="col-lg-4">
-            <a href="producto">
-                <img class="imagen_producto" src="../assets/img/tennis_2.jpg" class="rounded" alt="tennis_2" width="300" height="300">
-                <h2 class="titulo_producto" >zapatoos negros</h2>
-                <p class="precio_producto"> $ 300 pesos</p>
-            </a>
-        </div>
-        <div  id="imagen_prodcuto" class="col-lg-4">
-            <a href="producto">
-                <img class="imagen_producto" src="../assets/img/tennis_3.jpg" class="rounded" alt="tennis_1" width="300" height="300">
-                <h2 class="titulo_producto" >zapatoos negros</h2>
-                <p class="precio_producto"> $ 300 pesos</p>
-            </a>
-        </div>
-    </div>
-    <div  class="row">
-        <div id="imagen_prodcuto" class="col-lg-4">
-            <a href="producto ">
-                <img class="imagen_producto" src="../assets/img/tennis_1.jpg" class="rounded" alt="tennis_3" width="300" height="300">
-                <h2 class="titulo_producto"> zapatoos negros</h2>
-                <p class="precio_producto"> $ 300 pesos</p>
-            </a>
-        </div>
-        <div  id="imagen_prodcuto" class="col-lg-4">
-            <a href="producto">
-                <img class="imagen_producto" src="../assets/img/tennis_2.jpg" class="rounded" alt="tennis_2" width="300" height="300">
-                <h2 class="titulo_producto" >zapatoos negros</h2>
-                <p class="precio_producto"> $ 300 pesos</p>
-            </a>
-        </div>
-        <div  id="imagen_prodcuto" class="col-lg-4">
-            <a href="producto">
-                <img class="imagen_producto" src="../assets/img/tennis_3.jpg" class="rounded" alt="tennis_1" width="300" height="300">
-                <h2 class="titulo_producto" >zapatoos negros</h2>
-                <p class="precio_producto"> $ 300 pesos</p>
-            </a>
-        </div>
-    </div>
-    <div  class="row">
-        <div id="imagen_prodcuto" class="col-lg-4">
-            <a href="producto ">
-                <img class="imagen_producto" src="../assets/img/tennis_1.jpg" class="rounded" alt="tennis_3" width="300" height="300">
-                <h2 class="titulo_producto"> zapatoos negros</h2>
-                <p class="precio_producto"> $ 300 pesos</p>
-            </a>
-        </div>
-        <div  id="imagen_prodcuto" class="col-lg-4">
-            <a href="producto">
-                <img class="imagen_producto" src="../assets/img/tennis_2.jpg" class="rounded" alt="tennis_2" width="300" height="300">
-                <h2 class="titulo_producto" >zapatoos negros</h2>
-                <p class="precio_producto"> $ 300 pesos</p>
-            </a>
-        </div>
-        <div  id="imagen_prodcuto" class="col-lg-4">
-            <a href="producto">
-                <img class="imagen_producto" src="../assets/img/tennis_3.jpg" class="rounded" alt="tennis_1" width="300" height="300">
-                <h2 class="titulo_producto" >zapatoos negros</h2>
-                <p class="precio_producto"> $ 300 pesos</p>
-            </a>
-        </div>
-    </div>
+    @endisset
 @endsection
 
