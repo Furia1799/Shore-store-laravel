@@ -30,8 +30,6 @@
         @endguest
         @auth
                 @if($usuario = Auth::user())
-
-
                 <p id="bienvenido">Bienvenido {{$usuario->name}}</p>
         <li class="nav-item">
             <a id="btnMiCuenta" class="nav-link btn btn-light" href="{{'/users/perfil/'. $usuario->id}}">Mi Cuenta</a>
