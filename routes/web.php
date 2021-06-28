@@ -10,7 +10,6 @@ use App\Http\Controllers\ProductClienteController;
 
 
 
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -50,7 +49,7 @@ Route::view('/administracion/categories/agregar', 'administrador.categories.crud
 
 //RUTAS CON FUNCION
 Route::get('/', function(){
-    return view('index');
+    //return view('index');
 });
 
 Route::get('/master', function(){
@@ -125,7 +124,8 @@ Route::resource('/products', ProductController::class);
 /**
  * Controlador de Principal
  */
-Route::get('/novedades', [ProductClienteController::class,'productsNovedades']);
+//Route::get('/novedades', [ProductClienteController::class,'productsNovedades']);
+Route::get('/', [ProductClienteController::class,'productsNovedades']);
 Route::get('/product/{id}',[ProductClienteController::class,'productIndividual']);
 
 //controlador de User
@@ -144,5 +144,20 @@ Route::resource('/categories',CategoryController::class);
 
 Route::get('/muestra_user', function(){
     return view('cliente.users.index');
+});
+
+Route::get('/test', function(){
+    $admin = \App\Models\User::find(1);
+    //$roles = $admin->getRoleNames();
+    $roles = $permissions = $admin->getAllPermissions();
+    $permissionNames = $admin->getPermissionNames(); // collection of name strings
+    $permissions = $admin->permissions;
+
+
+    dd($roles, $admin->can('Roles.view'));
+
+    dd($admin,$permissionNames,$permissions);
+
+
 });
 

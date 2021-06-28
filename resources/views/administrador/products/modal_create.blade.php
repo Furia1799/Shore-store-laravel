@@ -18,7 +18,6 @@
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
 
                         </div>
-
                         <!-- Modal body -->
                         <form id="formulario" action="/products" method="POST" enctype="multipart/form-data"> <!--Enviar a controlador -->
                             @csrf <!--Evitar inyecciones sql-->
@@ -35,7 +34,7 @@
                                 <div class="form-group">
                                     <label for="name">Nombre : </label>
                                     <input type="text" class="form-control" name="name" id="name"
-                                           placeholder="Nombre Producto" maxlength="50" minlength="5" pattern="[A-Z a-z 0-9]+"
+                                           placeholder="Nombre Producto" maxlength="50" minlength="5" pattern="[A-Z a-z 0-9]+{5,30}"
                                            title="Ingrese un nombre correcto" required >
                                 </div>
 

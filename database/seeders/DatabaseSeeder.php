@@ -31,7 +31,7 @@ class DatabaseSeeder extends Seeder
         //$this->call(BrandSeeder::class);
 
         //factory // usar el nombre de modelo
-        Direction::factory(20)->create();
+        /*Direction::factory(20)->create();
         User::factory(20)->create();
         Category::factory(6)->create();
         Brand::factory(20)->create();
@@ -40,6 +40,12 @@ class DatabaseSeeder extends Seeder
 
         //seeder
         $this->call(Category_ProductSeeeder::class);
-        $this->call(Order_ProductSeeeder::class);
+        $this->call(Order_ProductSeeeder::class);*/
+        Brand::factory(20)->create();
+        Product::factory(20)->create();
+
+        $this->call(UserSeeder::class);
+        $this->call(RoleSeeder::class);
+
     }
 }

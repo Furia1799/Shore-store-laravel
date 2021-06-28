@@ -6,15 +6,18 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 //
-use Illuminate\Contracts\Auth\Authenticatable;
+//use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Spatie\Permission\Traits\HasRoles;
 
 
-
-class User extends Model implements Authenticatable
+class User extends Authenticatable
 {
-    use HasFactory;
+    use HasRoles;
     //eliminar update_at y create_at
     public $timestamps = false;
+    protected $guard_name = 'web';
+
 
     //uno a muchos
     public function orders()
