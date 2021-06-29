@@ -145,8 +145,8 @@ class AutenticacionController extends Controller
 
         if(Auth::attempt($credentials))
         {
-            //return Redirect('/novedades');
-            return Redirect('/');
+            return Redirect('/novedades');
+            //return Redirect('/');
         }
 
         return redirect('/login')->with('mensaje','Error al iniciar session');

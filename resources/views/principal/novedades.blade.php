@@ -13,10 +13,8 @@
 
     @include('cliente.users.modal_create')
 
-
     @isset($products)
         <div  class="container">
-
             <div id="album" class="row row-cols-3 g-3" >
                 {{--@dd($products) --}}
                 @foreach($products as $product)

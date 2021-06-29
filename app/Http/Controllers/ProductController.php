@@ -27,6 +27,7 @@ class ProductController extends Controller
             ->join('brands','brands.id', '=' ,'products.id_brand')->get();*/
 
         $products = Product::with('brand')->orderByDesc('id');//relacion con brand
+
         //$products = Product::query();
         //dd($products);
         if(request()->ajax() or request()->expectsJson()){ //verifico que venga en ajax o json
@@ -40,7 +41,7 @@ class ProductController extends Controller
                                 </button>
                             </a>";
                 })
-                ->addColumn('eliminar', function( $product) {
+                ->addColumn('eliminar', function($product) {
                     $route = route('products.destroy',['product' => $product->id]);
                     //return "<a href='{$route}'>Eliminar</a>";
                     return "<a href='{$route}'>

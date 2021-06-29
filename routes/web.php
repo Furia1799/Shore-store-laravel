@@ -124,9 +124,13 @@ Route::resource('/products', ProductController::class);
 /**
  * Controlador de Principal
  */
-//Route::get('/novedades', [ProductClienteController::class,'productsNovedades']);
-Route::get('/', [ProductClienteController::class,'productsNovedades']);
+Route::get('/novedades', [ProductClienteController::class,'productsNovedades']);
+Route::get('/woman', [ProductClienteController::class,'productsWoman']);
+Route::get('/man', [ProductClienteController::class,'productsMan']);
+//Route::get('/', [ProductClienteController::class,'productsNovedades']);
 Route::get('/product/{id}',[ProductClienteController::class,'productIndividual']);
+Route::get('/carrito/',[ProductClienteController::class,'carrito']);
+
 
 //controlador de User
 Route::resource('/users', UserController::class);

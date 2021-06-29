@@ -37,7 +37,6 @@
                                            placeholder="Nombre Producto" maxlength="50" minlength="5" pattern="[A-Z a-z 0-9]+{5,30}"
                                            title="Ingrese un nombre correcto" required >
                                 </div>
-
                                 <div class="form-group">
                                     <label for="description">Descripcion :</label>
                                     <textarea class="form-control" name="description"

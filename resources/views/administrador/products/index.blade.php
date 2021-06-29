@@ -85,9 +85,10 @@
                 dom: 'Bfrtip',
                 columns: [
                     { title: "Id", data: "id"},
-                    { title: "Marca",data: "brand.name" },
                     { title: "Nombre" ,data: "name" },
                     { title: "Descripccion", data: "description" },
+                    { title: "Marca",data: "brand.name" },
+                    { title: "Categoria",data: "brand.name" },
                     { title: "Precio", data: "price" },
                     { title: "Stock" , data: "stock" },
                     { title: "Imagen", data: "image" , width: '100px', orderable: false, searchable: false },

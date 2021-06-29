@@ -89,13 +89,29 @@ class ProductClienteController extends Controller
         $product = Product::find($id);
 
         //dd($product);
-        return view('principal.producto')->with('product', $product);
+        return view('cliente.producto')->with('product', $product);
     }
 
     public function productsNovedades(){
         $products = Product::orderByDesc('id')->get();
 
         return view('principal.novedades')->with('products',$products);
+    }
+
+    public function productsWoman(){
+        $products = Product::orderByDesc('id')->get();
+
+        return view('principal.mujeres')->with('products',$products);
+    }
+
+    public function productsMan(){
+        $products = Product::orderByDesc('id')->get();
+
+        return view('principal.hombres')->with('products',$products);
+    }
+
+    public function carrito(){
+        return view('cliente.carrito');
     }
 
 }

@@ -28,8 +28,9 @@ class Product extends Model{
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function categories(){
-        return $this->belongsToMany(Category::class,'categories_products','id_category',
-            'id_product');
+       /* return $this->belongsToMany(Category::class,'categories_products','id_category',
+            'id_product');*/
+        return $this->belongsToMany(Category::class);
     }
 
     //muchos a muchos

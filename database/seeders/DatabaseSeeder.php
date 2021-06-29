@@ -43,6 +43,7 @@ class DatabaseSeeder extends Seeder
         $this->call(Order_ProductSeeeder::class);*/
         Brand::factory(20)->create();
         Product::factory(20)->create();
+        Category::factory(6)->create();
 
         $this->call(UserSeeder::class);
         $this->call(RoleSeeder::class);

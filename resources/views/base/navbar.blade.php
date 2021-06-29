@@ -7,13 +7,13 @@
     </a>
     <ul class="navbar-nav ">
         <li class="nav-item">
-            <a class="nav-link" href="{{url('/mujeres')}}">Mujere</a>
+            <a class="nav-link" href="/woman">Mujere</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{url('/hombres')}}">Hombre</a>
+            <a class="nav-link" href="/man">Hombre</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{url('/novedades')}}">Novedades</a>
+            <a class="nav-link" href="/novedades">Novedades</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="#">Nosotros</a>
