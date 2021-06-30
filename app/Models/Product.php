@@ -32,6 +32,10 @@ class Product extends Model{
             'id_product');*/
         return $this->belongsToMany(Category::class);
     }
+    //metodo para agregar datos a tabla pivot
+    public function attachCategories($id){
+        $this->categories()->attach($id);
+    }
 
     //muchos a muchos
 

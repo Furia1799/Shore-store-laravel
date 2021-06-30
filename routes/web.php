@@ -161,6 +161,25 @@ Route::get('/test', function(){
     dd($roles, $admin->can('Roles.view'));
 
     dd($admin,$permissionNames,$permissions);
+});
+
+Route::get('/consultas',function(){
+    $product = \App\Models\Product::find(2); //buscar
+    $category = \App\Models\Category::find(2); //buscar
+    $idcategory = $category->id;
+    //Carrera::with('series')->findOrFail($id);
+    //$product->categories->attach($idcategory);
+   // $product->attachCategories($idcategory);//guardar*/
+
+    $productsconCategories = \App\Models\Product::with('categories')->get();
+    $product->categories;
+    //dd($productsconCategories);
+    foreach($productsconCategories as $product){
+        $nombre_producto = $product->name;
+        $nombre_categoria = $product->category.name;
+        dd($nombre_producto,$nombre_categoria);
+
+    }
 
 
 });
