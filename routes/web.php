@@ -176,8 +176,9 @@ Route::get('/consultas',function(){
     //dd($productsconCategories);
     foreach($productsconCategories as $product){
         $nombre_producto = $product->name;
-        $nombre_categoria = $product->category.name;
-        dd($nombre_producto,$nombre_categoria);
+        $nombre_categoria = $product->category[0].name;
+
+        dd($product->categories->first()->name);
 
     }
 

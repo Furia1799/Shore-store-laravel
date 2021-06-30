@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Brand;
+use App\Models\Category;
 use Yajra\DataTables\Contracts\DataTable;
 use Yajra\DataTables\Facades\DataTables;
 use App\Http\Requests\ProductsRequest;
@@ -26,10 +27,16 @@ class ProductController extends Controller
             ,'products.description','products.price','products.stock','products.image')
             ->join('brands','brands.id', '=' ,'products.id_brand')->get();*/
 
-        $products = Product::with('brand')->orderByDesc('id');//relacion con brand
+        $products = Product::with('brand','categories')->orderByDesc('id');
+        //$products = Product::with('brand','categories')->get();//relacion con brand
 
-        //$products = Product::query();
         //dd($products);
+        //$products = Product::query();
+        /*foreach($products as $product){
+            //dd($product->brand->name, $product->categories->first()->name);
+            //dd($product->brand->name, $product->categories[0]->name);
+        }*/
+
         if(request()->ajax() or request()->expectsJson()){ //verifico que venga en ajax o json
             return DataTables::of($products)
                 ->addColumn('editar', function($product) {
@@ -61,7 +68,6 @@ class ProductController extends Controller
                 ->rawColumns(["editar", "eliminar", "image"]) //renderizar
                 ->make();
 
-
         }
 
         return view('administrador.products.index')->with('products', $products); //vista a mandar
@@ -78,9 +84,11 @@ class ProductController extends Controller
         //Mostrar formulario Product
         //$brands = $this->BrandsAll();
         $brands = Brand::all();
+        $categories = Category::all();
 
         return redirect()->route('products.index')
             ->with('brands',$brands)
+            ->with('categories',$categories)
             ->with('accion','crear');
     }
 
@@ -113,6 +121,11 @@ class ProductController extends Controller
         $products->image = $url_image. '/' .$nombre_image; //GUARDAR URL
         $products->save();
         //dd($products);
+
+        //guardar en tabla pivot
+        $category_id = $request->get('category_id');
+        $products->attachCategories($category_id);
+
 
         return redirect()->route('products.index')->with('estado', 'Creado'); //ir de nuevo al controlador index
     }

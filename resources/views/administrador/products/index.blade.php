@@ -88,7 +88,7 @@
                     { title: "Nombre" ,data: "name" },
                     { title: "Descripccion", data: "description" },
                     { title: "Marca",data: "brand.name" },
-                    { title: "Categoria",data: "brand.name" },
+                    { title: "Categoria",data: "categories[].name" }, /*"categories[0].name"*/
                     { title: "Precio", data: "price" },
                     { title: "Stock" , data: "stock" },
                     { title: "Imagen", data: "image" , width: '100px', orderable: false, searchable: false },

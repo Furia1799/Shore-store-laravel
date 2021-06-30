@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Product;
+use App\Models\Category;
 
 
 use Illuminate\Http\Request;
@@ -93,19 +94,51 @@ class ProductClienteController extends Controller
     }
 
     public function productsNovedades(){
-        $products = Product::orderByDesc('id')->get();
+        //$products = Product::with('categories')
+        //    ->where('categories.name','novedades')->get();
+
+        //$categorias = Category::with('products')
+          //  ->where('name','Hombre')->get();
+
+        //$product = $products[0]->products[0]->names;
+        //dd($products, $product);
+       // ['product' => $product->id];
+        $categories = Category::where('name','Novedades')->get();
+        foreach($categories as $category){
+            $category_id = $category->id;
+        }
+
+        $products = Category::find($category_id)->products()->get();
+        //dd($products);
+       /* foreach (categorias as $product){
+             //$nombre = $product->categories->first()->name;
+            $product;
+            dd($product);
+        }*/
 
         return view('principal.novedades')->with('products',$products);
     }
 
     public function productsWoman(){
-        $products = Product::orderByDesc('id')->get();
+        //$products = Product::orderByDesc('id')->get();
+        $categories = Category::where('name','Mujer')->get();
+        foreach($categories as $category){
+            $category_id = $category->id;
+        }
+
+        $products = Category::find($category_id)->products()->get();
 
         return view('principal.mujeres')->with('products',$products);
     }
 
     public function productsMan(){
-        $products = Product::orderByDesc('id')->get();
+        //$products = Product::orderByDesc('id')->get();
+        $categories = Category::where('name','Hombre')->get();
+        foreach($categories as $category){
+            $category_id = $category->id;
+        }
+
+        $products = Category::find($category_id)->products()->get();
 
         return view('principal.hombres')->with('products',$products);
     }
