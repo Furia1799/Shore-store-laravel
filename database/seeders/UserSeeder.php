@@ -22,6 +22,7 @@ class UserSeeder extends Seeder
             'last_name' => 'Reyes',
             'email' => 'furia1799@gmail.com',
             'password' => bcrypt('12345'),
+            'cart_id' => 1
         ]);
 
         DB::table('users')->insert([
@@ -29,7 +30,7 @@ class UserSeeder extends Seeder
             'last_name' => 'Ruelas',
             'email' => 'Alberto@gmail.com',
             'password' => bcrypt('secret'),
-
+            'cart_id' => 2
         ]);
 
     }

@@ -25,6 +25,14 @@ class User extends Authenticatable
         return $this->hasMany(Order::class, 'id_user');
     }
 
+    public function directions(){
+        return $this->hasMany(Direction::class);
+    }
+
+    public function cart(){
+        return $this->hasOne(Direction::class);
+    }
+
 
     public function getAuthIdentifierName()
     {

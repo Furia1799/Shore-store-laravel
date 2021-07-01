@@ -1,5 +1,7 @@
 @if($accion = Session::get('accion'))
     @if($accion == 'crear')
+        @if(Auth::check() == false)
+        <p>USUARIO AUTENTICADO</p>
 
         <script>
             $(document).ready(function () {
@@ -53,5 +55,6 @@
                 </div>
             </div>
         </div>
+        @endif
     @endif
 @endif

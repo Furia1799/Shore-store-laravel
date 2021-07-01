@@ -15,10 +15,15 @@ class CreateDirectionsTable extends Migration
     {
         Schema::create('directions', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->foreignId('user_id');
             $table->string('country',50);
             $table->string('provincia',50);
             $table->string('city',50);
             $table->string('address',100);
+
+            $table->foreign('user_id')->references('id')->on('users')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
         });
     }
 

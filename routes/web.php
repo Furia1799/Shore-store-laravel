@@ -7,6 +7,8 @@ use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\AutenticacionController;
 use App\Http\Controllers\ProductClienteController;
+use App\Http\Controllers\DirectionController;
+use App\Http\Controllers\CartController;
 
 
 
@@ -128,9 +130,19 @@ Route::get('/novedades', [ProductClienteController::class,'productsNovedades']);
 Route::get('/woman', [ProductClienteController::class,'productsWoman']);
 Route::get('/man', [ProductClienteController::class,'productsMan']);
 //Route::get('/', [ProductClienteController::class,'productsNovedades']);
-Route::get('/product/{id}',[ProductClienteController::class,'productIndividual']);
-Route::get('/carrito/',[ProductClienteController::class,'carrito']);
 
+Route::get('/product/{id}',[ProductClienteController::class,'productIndividual']);
+
+/**
+ * Controlador Carrito Compras
+ */
+Route::get('/carrito',[ProductClienteController::class,'carrito']);
+Route::resource('/carts', CartController::class);
+
+/**
+ * Controlador Direction
+ */
+Route::resource('/directions',DirectionController::class);
 
 //controlador de User
 Route::resource('/users', UserController::class);
@@ -149,6 +161,7 @@ Route::resource('/categories',CategoryController::class);
 Route::get('/muestra_user', function(){
     return view('cliente.users.index');
 });
+
 
 Route::get('/test', function(){
     $admin = \App\Models\User::find(1);

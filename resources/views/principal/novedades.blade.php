@@ -7,7 +7,7 @@
     <!--CONTENIDO-->
     <div  class="row">
         <div class="col-lg-12">
-            <h1 id="productos_titulo" class="display-4 text-center">Productos para Novedades</h1>
+            <h1 id="productos_titulo" class="display-4 text-center">Productos  Novedades</h1>
         </div>
     </div>
 

@@ -37,6 +37,10 @@ class Product extends Model{
         $this->categories()->attach($id);
     }
 
+    public function carts(){
+        return $this->belongsToMany(Cart::class);
+    }
+
     //muchos a muchos
 
     /**

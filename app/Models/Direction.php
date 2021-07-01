@@ -17,4 +17,8 @@ class Direction extends Model
         return $this->hasMany(Order::class,'id_direction');
     }
 
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+
 }

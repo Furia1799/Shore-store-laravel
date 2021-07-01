@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Cart;
 use Illuminate\Support\Facades\Hash;
 
 
@@ -45,6 +46,11 @@ class UserController extends Controller
         $users->email = $request->get('email');
         $users->password = Hash::make($request->get('password'));
         $users->rol = 'Cliente';
+
+        $cart = new Cart();
+        $cart->save();
+
+        $users->cart_id = $cart->id;
 
         $users->save();
 

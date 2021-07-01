@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Cart;
 use App\Models\Direction;
 use App\Models\User;
 use App\Models\Category;
@@ -43,10 +44,16 @@ class DatabaseSeeder extends Seeder
         $this->call(Order_ProductSeeeder::class);*/
         Brand::factory(20)->create();
         Product::factory(20)->create();
-        Category::factory(6)->create();
+        //Category::factory(6)->create();
+        $this->call(CategorySeeder::class);
+        $this->call(CategoryProductSeeder::class);
 
+
+        $this->call(CartSeeder::class);
         $this->call(UserSeeder::class);
         $this->call(RoleSeeder::class);
+        $this->call(CartProductSeeder::class);
+
 
     }
 }

@@ -71,7 +71,7 @@
                 <h3>Mis Datos</h3>
                 <div class="list-group">
                     <a href="#" class="list-group-item ">Mi cuenta</a>
-                    <a href="#" class="list-group-item ">Direcciones</a>
+                    <a href="/directions" class="list-group-item ">Direcciones</a>
                     <a href="#" class="list-group-item ">Historia de Pedidos</a>
                     <a href="#" class="list-group-item ">Otros</a>
                 </div>
@@ -88,7 +88,12 @@
             </button>
         </div>
     </div>
-    @include('cliente.users.modal_create')
+    @auth()
+
+    @else
+        @include('cliente.users.modal_create')
+    @endauth
+
     @if(Auth::check())
         <p>Usuario autenticado</p>
     @endif

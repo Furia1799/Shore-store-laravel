@@ -56,7 +56,11 @@
                     <br>
                     <p class="font-weight-bold"> $ {{$product->price}} MXN</p>
                 </div>
-                <form action="" method="">
+                <form action="/carts" method="POST">
+                    @csrf
+                    <div class="form-group">
+                        <input type="hidden" id="product_id" name="product_id" value="{{$product->id}}">
+                    </div>
                     <div class="form-group">
                         <label for="seleccion">Tallas disponibles :</label>
                         <select class="form-control" id="seleccion">
