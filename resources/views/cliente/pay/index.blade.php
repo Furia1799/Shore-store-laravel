@@ -3,21 +3,19 @@
 @section('title', 'carrito')
 
 @section('contenido')
-   <link rel="stylesheet" href="/assets/css/carrito.css">
-        <div  class="row">
-            <div class="col-lg-12">
-                <h1 id="productos_titulo" class="display-4 text-center">Tu Carrito</h1>
-            </div>
+    <link rel="stylesheet" href="/assets/css/carrito.css">
+    <div  class="row">
+        <div class="col-lg-12">
+            <h1 id="productos_titulo" class="display-4 text-center">Forma de pago</h1>
         </div>
+    </div>
 
-
-   <style>
-       aside{
-           width: 30%;
-           float: right;
-       }
-   </style>
-
+    <style>
+        aside{
+            width: 30%;
+            float: right;
+        }
+    </style>
 
     <div class="container">
         <!--CONTENIDO-->
@@ -28,51 +26,51 @@
                 </div>
             @endif
         @endif
-    @isset($cart)
-        @isset($product_number,$shipping_price,$total_price)
-            <aside>
-                <div class="row">
-                    <div class="col-lg-12 shadow-lg p-4 mb-4 bg-white float-right">
-                        <div class="card mb-3" style="max-width: 100%;">
-                            <div class="card-body ">
-                                <h4 class="card-Title text-center">Resumen del Pedido</h4>
-                                <br>
-                                <div class="row justify-content-between">
-                                    <div class="col-lg-6">
-                                        <p class="card-text float-left">{{$product_number}} Productos </p>
+        @isset($cart)
+            @isset($product_number,$shipping_price,$total_price)
+                <aside>
+                    <div class="row">
+                        <div class="col-lg-12 shadow-lg p-4 mb-4 bg-white float-right">
+                            <div class="card mb-3" style="max-width: 100%;">
+                                <div class="card-body ">
+                                    <h4 class="card-Title text-center">Resumen del Pedido</h4>
+                                    <br>
+                                    <div class="row justify-content-between">
+                                        <div class="col-lg-6">
+                                            <p class="card-text float-left">{{$product_number}} Productos </p>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <p class="card-text float-rigth">${{$total_price}}</p>
+                                        </div>
                                     </div>
-                                    <div class="col-lg-4">
-                                        <p class="card-text float-rigth">${{$total_price}}</p>
+                                    <br>
+                                    <div class="row justify-content-between">
+                                        <div class="col-lg-6">
+                                            <p class="card-text float-left">Entrega </p>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <p class="card-text float-rigth">Gratis</p>
+                                        </div>
                                     </div>
+                                    <br>
+                                    <div class="row justify-content-between">
+                                        <div class="col-lg-6">
+                                            <p class="card-text float-left">Total</p>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <p class="card-text float-rigth">${{$total_price}}</p>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <a id="btnComprar" href="/carts/" class="btn btn-primary">Ir a Pagar </a>
                                 </div>
-                                <br>
-                                <div class="row justify-content-between">
-                                    <div class="col-lg-6">
-                                        <p class="card-text float-left">Entrega </p>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <p class="card-text float-rigth">Gratis</p>
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="row justify-content-between">
-                                    <div class="col-lg-6">
-                                        <p class="card-text float-left">Total</p>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <p class="card-text float-rigth">${{$total_price}}</p>
-                                    </div>
-                                </div>
-                                <br>
-                                <a id="btnComprar" href="ordersCostumer/create" class="btn btn-primary">Ir a Pagar </a>
                             </div>
                         </div>
                     </div>
-                </div>
-            </aside>
-        @endisset
+                </aside>
+            @endisset
             <div  class="row ">
-            @foreach($cart->products as $product)
+                @foreach($cart->products as $product)
                     <div class="col-lg-11 shadow-lg p-4 mb-4 bg-white float-left">
                         <div class="card mb-3" style="max-width: 800px;">
                             <div class="row g-0">
@@ -90,7 +88,7 @@
                                                     <div class="form-group">
                                                         <label for="cantidad" class="mr-sm-3">Cantidad: </label>
                                                         <input type="number" class="form-control" min="1" max="10"
-                                                            value="1">
+                                                               value="1">
                                                     </div>
                                                 </form>
                                             </div>
@@ -105,9 +103,8 @@
                             </div>
                         </div>
                     </div>
-            @endforeach
+                @endforeach
             </div>
-
         @endisset
     </div>
 @endsection

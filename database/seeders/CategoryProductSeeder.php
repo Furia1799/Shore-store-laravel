@@ -15,7 +15,7 @@ class CategoryProductSeeder extends Seeder
     public function run()
     {
         //tabla pivot
-        DB::table('category_product')->insert([
+       /* DB::table('category_product')->insert([
             'category_id' => 1,
             'product_id' => 10,
         ]);
@@ -27,6 +27,6 @@ class CategoryProductSeeder extends Seeder
         DB::table('category_product')->insert([
             'category_id' => '3',
             'product_id' => '20',
-        ]);
+        ]);*/
     }
 }

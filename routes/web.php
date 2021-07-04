@@ -9,6 +9,7 @@ use App\Http\Controllers\AutenticacionController;
 use App\Http\Controllers\ProductClienteController;
 use App\Http\Controllers\DirectionController;
 use App\Http\Controllers\CartController;
+use \App\Http\Controllers\OrderClienteController;
 
 
 
@@ -120,8 +121,12 @@ Route::get('/login', [AutenticacionController::class,'show_login'])->name('login
 Route::post('/log_in', [AutenticacionController::class,'login']);
 Route::get('/logout', [AutenticacionController::class,'logout']);
 
-//Controlador de Product 2
+/**
+ * Controlador de Products
+ */
 Route::resource('/products', ProductController::class);
+
+
 
 /**
  * Controlador de Principal
@@ -138,6 +143,7 @@ Route::get('/product/{id}',[ProductClienteController::class,'productIndividual']
  */
 Route::get('/carrito',[ProductClienteController::class,'carrito']);
 Route::resource('/carts', CartController::class);
+
 
 /**
  * Controlador Direction
@@ -161,6 +167,11 @@ Route::resource('/categories',CategoryController::class);
 Route::get('/muestra_user', function(){
     return view('cliente.users.index');
 });
+
+/**
+ * Controlador OrdenesClientes
+ */
+Route::resource('/ordersCostumer',OrderClienteController::class);
 
 
 Route::get('/test', function(){

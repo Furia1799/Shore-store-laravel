@@ -35,6 +35,9 @@
             <a id="btnMiCuenta" class="nav-link btn btn-light" href="{{'/users/perfil/'. $usuario->id}}">Mi Cuenta</a>
         </li>
                 @endif
+                    <li class="nav-item">
+                        <a id="btnRegistrar" class="nav-link btn btn-warning" href="/carts">Carrito</a>
+                    </li>
         <li class="nav-item">
             <a id="btnSalir" class="nav-link btn btn-danger" href="{{url('/logout')}}">Cerrar Sesion</a>
         </li>

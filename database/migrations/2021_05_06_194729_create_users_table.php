@@ -20,6 +20,9 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password',100);
             $table->bigInteger('cart_id')->unique();
+            $table->string('role',20);
+
+
             //$table->string('rol',10)->nullable();
             $table->rememberToken();
             //$table->timestamps();

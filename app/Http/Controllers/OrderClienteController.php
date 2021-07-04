@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Cart;
+use App\Models\Direction;
+use App\Models\Order;
+
+use Illuminate\Http\Request;
 use Auth;
 
-class CartController extends Controller
+class OrderClienteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,28 +18,7 @@ class CartController extends Controller
      */
     public function index()
     {
-        if($user = Auth::user()){
-            $cart_id = $user->cart_id;
-        }
-
-        $cart = Cart::find($cart_id);
-
-        $product_number = 0;
-        $shipping_price = 0;
-        $total_price = 0;
-
-        foreach($cart->products as $product){
-           $total_price += $product->price;
-           $product_number++;
-        }
-
-        //dd($product_number,$shipping_price,$total_price);
-
-        return view('cliente.cart.carrito')
-            ->with('cart',$cart)
-            ->with('product_number',$product_number)
-            ->with('shipping_price', $shipping_price)
-            ->with('total_price',$total_price);
+        //mostrar todos las ordenes
     }
 
     /**
@@ -47,6 +29,33 @@ class CartController extends Controller
     public function create()
     {
         //
+        if($user = Auth::user()){
+            $cart_id = $user->cart_id;
+            $user_id = $user->id;
+        }
+
+        $cart = Cart::find($cart_id);
+
+        $product_number = 0;
+        $shipping_price = 0;
+        $total_price = 0;
+
+        foreach($cart->products as $product){
+            $total_price += $product->price;
+            $product_number++;
+        }
+
+        $directions = Direction::where('user_id',$user_id)->get();
+
+        //dd($product_number,$shipping_price,$total_price);
+
+        return view('cliente.order.create')
+            ->with('product_number',$product_number)
+            ->with('shipping_price', $shipping_price)
+            ->with('total_price',$total_price)
+            ->with('directions',$directions)
+            ->with('user',$user);
+
     }
 
     /**
@@ -57,16 +66,18 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        //añaddir producto a carrito
-        if($user = Auth::user()){
-            $cart_id = $user->cart_id;
-        }
+        $order = new Order();
+        $order->user_id = $request->get('user_id');
+        $order->direction_id = $request->get('direction_id');
+        $order->cost = $request->get('cost');
+        $order->status = 'En Proceso';
+        //$order->date = date("d-m-Y");
+        $order->date = date("Y-m-d");
 
-        $cart = Cart::find($cart_id);
-        $product_id = $request->get('product_id');
-        $cart->attachProducts($product_id);
+        $order->save();
 
-        return redirect()->route('carts.index')->with('estado','agregado');
+        return redirect('/novedades');
+
     }
 
     /**
@@ -112,9 +123,5 @@ class CartController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function destroyProduct(){
-
     }
 }

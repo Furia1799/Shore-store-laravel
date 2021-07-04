@@ -43,7 +43,7 @@
                     </div>
                 </form>
                 @if($message = Session::get('mensaje'))
-                        <div class="alert alert-success">
+                        <div class="alert alert-danger">
                             <strong>{{ $message }}!</strong>
                         </div>
                 @endif

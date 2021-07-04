@@ -81,20 +81,16 @@
     </div>
 
     @endif
-    <div class="row">
-        <div class="col-lg-12">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalAdd">
-                Open modal
-            </button>
-        </div>
-    </div>
-    @auth()
+
+      @auth()
+
 
     @else
         @include('cliente.users.modal_create')
     @endauth
 
-    @if(Auth::check())
+
+    {{-- @if(Auth::check())
         <p>Usuario autenticado</p>
-    @endif
+    @endif--}}
 @endsection

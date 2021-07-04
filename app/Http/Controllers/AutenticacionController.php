@@ -137,7 +137,10 @@ class AutenticacionController extends Controller
 
         }
 
+
+
         return Redirect('/login')->with('mensaje', 'No autentificado');*/
+
 
         $data = request()->only('email', 'password');
 
@@ -145,7 +148,15 @@ class AutenticacionController extends Controller
 
         if(Auth::attempt($credentials))
         {
-            return Redirect('/novedades');
+            $usuario = Auth::user();
+
+            if($usuario->role == 'Admin'){
+                return Redirect('/products');
+            }else{
+                return Redirect('/novedades');
+            }
+
+            //return Redirect('/novedades');
             //return Redirect('/');
         }
 

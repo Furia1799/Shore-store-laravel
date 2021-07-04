@@ -28,6 +28,8 @@ class CreateOrdersTable extends Migration
             $table->foreign('direction_id')->references('id')->on('directions')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
+
+
         });
     }
 

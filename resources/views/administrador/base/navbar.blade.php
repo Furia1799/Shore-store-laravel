@@ -9,9 +9,6 @@
             <a class="nav-link" href="/categories">Categorias</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/direcciones">Direcciones</a>
-        </li>
-        <li class="nav-item">
             <a class="nav-link" href="/brands">Marcas</a>
         </li>
         <li class="nav-item">
@@ -27,7 +24,7 @@
         @endif
         <li class="nav-item">
             <a class="nav-link">
-                <button type="button" class="btn btn-danger">Cerrar Sesion</button>
+                <a  href="/logout" type="button" class="btn btn-danger">Cerrar Sesion</a>
             </a>
         </li>
     </ul>

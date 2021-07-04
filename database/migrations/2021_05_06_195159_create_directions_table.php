@@ -35,5 +35,6 @@ class CreateDirectionsTable extends Migration
     public function down()
     {
         Schema::dropIfExists('directions');
+        DB::statement('drop table directions cascade');
     }
 }

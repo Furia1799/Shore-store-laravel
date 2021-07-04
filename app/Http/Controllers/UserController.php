@@ -45,7 +45,8 @@ class UserController extends Controller
         $users->last_name = $request->get('last_name');
         $users->email = $request->get('email');
         $users->password = Hash::make($request->get('password'));
-        $users->rol = 'Cliente';
+        $users->role = 'Cliente';
+        //$users->role = 'Admin';
 
         $cart = new Cart();
         $cart->save();
@@ -56,14 +57,7 @@ class UserController extends Controller
 
         //logearse al mismo tiempo de agregar usuario
 
-        if ($users->rol == 'Cliente'){
-            return redirect('/login');
-        }
-
-        if ($users->rol == 'Admin'){
-            return redirect()->route('users.index')->with('estado','Creado');
-        }
-
+        return redirect('/login');
     }
 
     /**
